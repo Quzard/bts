@@ -320,9 +320,9 @@ int ::ARFCNManager::sendCommand(const char*command, const char*param, int *respo
 	int rspLen = sendCommandPacket(cmdBuf,response);
 	if (rspLen<=0) return -1;
 	// Parse and check status.
-	char cmdNameTest[15];
+	char cmdNameTest[16] = { 0 };
 	int status;
-	cmdNameTest[0]='\0';
+	//cmdNameTest[0]='\0';
         if (!responseParam)
 	  sscanf(response,"RSP %15s %d", cmdNameTest, &status);
         else
@@ -340,9 +340,9 @@ int ::ARFCNManager::sendCommand(const char*command, int param, int *responsePara
 	int rspLen = sendCommandPacket(cmdBuf,response);
 	if (rspLen<=0) return -1;
 	// Parse and check status.
-	char cmdNameTest[15];
+	char cmdNameTest[16] = { 0 };
 	int status;
-	cmdNameTest[0]='\0';
+	//cmdNameTest[0]='\0';
         if (!responseParam)
 	  sscanf(response,"RSP %15s %d", cmdNameTest, &status);
         else
@@ -361,9 +361,9 @@ int ::ARFCNManager::sendCommand(const char*command, const char* param)
 	int rspLen = sendCommandPacket(cmdBuf,response);
 	if (rspLen<=0) return -1;
 	// Parse and check status.
-	char cmdNameTest[15];
+	char cmdNameTest[16] = { 0 };
 	int status;
-	cmdNameTest[0]='\0';
+	//cmdNameTest[0]='\0';
 	sscanf(response,"RSP %15s %d", cmdNameTest, &status);
 	if (strcmp(cmdNameTest,command)!=0) return -1;
 	return status;
@@ -380,9 +380,9 @@ int ::ARFCNManager::sendCommand(const char*command)
 	int rspLen = sendCommandPacket(cmdBuf,response);
 	if (rspLen<=0) return -1;
 	// Parse and check status.
-	char cmdNameTest[15];
+	char cmdNameTest[16] = { 0 };
 	int status;
-	cmdNameTest[0]='\0';
+	//cmdNameTest[0]='\0';
 	sscanf(response,"RSP %15s %d", cmdNameTest, &status);
 	if (strcmp(cmdNameTest,command)!=0) return -1;
 	return status;
